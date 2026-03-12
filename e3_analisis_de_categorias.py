@@ -23,3 +23,28 @@ Usa un bucle para iterar sobre los préstamos
 Para cada categoría, guarda una lista de días
 Calcula promedios usando sum() y len()
 """
+
+prestamos = [
+    {"titulo": "1984", "categoria": "Ficción", "dias": 15},
+    {"titulo": "Sapiens", "categoria": "Ensayo", "dias": 22},
+    {"titulo": "Watchmen", "categoria": "Cómic", "dias": 18},
+    {"titulo": "El Quijote", "categoria": "Ficción", "dias": 30},
+    {"titulo": "Breve historia", "categoria": "Ensayo", "dias": 25},
+    {"titulo": "Batman", "categoria": "Cómic", "dias": 12}
+]
+
+categorias = {}
+
+for prestamo in prestamos:
+    categoria = prestamo["categoria"]
+    dias = prestamo["dias"]
+
+    if categoria not in categorias:
+        categorias[categoria] = []
+
+    categorias[categoria].append(dias)
+
+for categoria in categorias:
+    dias = categorias[categoria]
+    promedio = sum(dias) / len(dias)
+    print(f"Promedio de dias para la categoria {categoria}: {promedio}")
