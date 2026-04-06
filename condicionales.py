@@ -1,5 +1,5 @@
 # Datos de un préstamo en biblioteca
-dias_prestamo = 40
+dias_prestamo = 35
 limite_normal = 21
 limite_extendido = 30
 

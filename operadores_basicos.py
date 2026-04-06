@@ -1,4 +1,4 @@
-# Datos de ventas
+ # Datos de ventas
 precio_unitario = 25.50
 cantidad_vendida = 120
 costo_envio = 5.00
@@ -18,4 +18,5 @@ if aplica_descuento:
 
 print(f"Subtotal: {subtotal}")
 print(f"Total final: {total}")
-print(f"¿Descuento aplicado? {aplica_descuento}")
+print(f"¿Descuento aplicado? {aplica_descuento}") 
+

@@ -1,7 +1,7 @@
 """ 
 def analizar_prestamo(dias, categoria, limite_normal=21):
     """
-    Analiza un préstamo y calcula penalización.
+   """ Analiza un préstamo y calcula penalización.
     
     Args:
         dias (int): Días del préstamo

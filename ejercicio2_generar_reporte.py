@@ -9,7 +9,7 @@ Nivel: Intermedio
 
 import pandas as pd
 from datetime import datetime
-
+import matplotlib.pyplot as plt
 # =============================================================================
 # PARTE 1: CREAR DATOS DE EJEMPLO
 # =============================================================================
@@ -28,6 +28,10 @@ ventas = pd.DataFrame({
 # Calcular métricas adicionales
 ventas['Beneficio'] = ventas['Ventas'] - ventas['Gastos']
 ventas['Margen %'] = (ventas['Beneficio'] / ventas['Ventas'] * 100).round(2)
+
+ventas['Alerta'] = ventas['Margen %'].apply(
+    lambda x: '⚠️ Bajo margen' if x < 20 else ''
+)
 
 print("\n📊 Datos generados:")
 print(ventas)
@@ -51,7 +55,24 @@ print(f"   Margen promedio: {margen_promedio:.2f}%")
 print(f"   Mejor mes: {mejor_mes} ({mejor_beneficio:,}€)")
 
 # =============================================================================
-# PARTE 3: GENERAR HTML PROFESIONAL
+# PARTE 3: GENERAR GRÁFICA
+# =============================================================================
+
+plt.figure()
+
+plt.plot(ventas['Mes'], ventas['Ventas'], marker='o', label='Ventas')
+plt.plot(ventas['Mes'], ventas['Gastos'], marker='o', label='Gastos')
+
+plt.title('Ventas vs Gastos')
+plt.xlabel('Mes')
+plt.ylabel('€')
+plt.legend()
+plt.grid()
+
+plt.savefig('grafico.png')  
+plt.close()
+# =============================================================================
+# PARTE 4: GENERAR HTML PROFESIONAL
 # =============================================================================
 
 html_completo = f"""
@@ -242,6 +263,11 @@ html_completo = f"""
                 </div>
             </div>
             
+            plt.figure()
+
+            <h2>📊 Visualización</h2>
+            <img src="grafico.png" style="width:100%; border-radius:10px; margin-bottom:30px;">
+
             <h2>📋 Detalle Mensual</h2>
 """
 

@@ -152,6 +152,7 @@ Pistas:
 - Usa df.head() para verificar que tienes la tabla correcta
 """)
 
+
 print("\n✅ Ejercicio completado!")
 print("\n💡 TIP: En el Satélite 5 aprenderás web scraping avanzado")
 print("   con BeautifulSoup para páginas más complejas.")
